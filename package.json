@@ -1,0 +1,14 @@
+{
+  "name": "stitch-social-media",
+  "version": "1.0.0",
+  "description": "Root package for Stitch Social Media Platform",
+  "scripts": {
+    "install-all": "npm install && cd backend && npm install",
+    "backend": "cd backend && npm run dev",
+    "seed": "cd backend && node seed.js",
+    "dev": "start http://localhost:5001 && npm run backend"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.1"
+  }
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+    <title>Stitch</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    </style>
+</head>
+<body>
+
+    <!-- Auth Section -->
+    <section id="auth-section" class="auth-container hidden">
+        <div class="auth-box">
+            <h1 class="auth-logo">Stitch</h1>
+            <form id="auth-form" class="auth-form">
+                <input type="text" id="username" class="auth-input hidden" placeholder="Username">
+                <input type="email" id="email" required class="auth-input" placeholder="Email address">
+                <input type="password" id="password" required class="auth-input" placeholder="Password">
+                <button type="submit" id="auth-submit" class="auth-submit">Log In</button>
+            </form>
+            <div class="auth-divider">OR</div>
+            <div style="color: #385185; font-weight: 600; font-size: 14px; cursor: pointer;">Log in with Facebook</div>
+        </div>
+        <div class="auth-switch">
+            <p id="toggle-text">Don't have an account? <span id="toggle-link" onclick="app.toggleAuth()">Sign up</span></p>
+        </div>
+    </section>
+
+    <!-- App Content -->
+    <div id="app-content" class="app-container hidden">
+        <header id="app-header" class="main-header">
+            <div class="logo" onclick="app.showFeed()">Stitch</div>
+            <div class="header-icons">
+                <span class="material-symbols-outlined" style="cursor:pointer;">favorite</span>
+                <span class="material-symbols-outlined" style="cursor:pointer;">send</span>
+            </div>
+        </header>
+
+        <main id="main-view" class="fade-in" style="padding-bottom: 60px;">
+            <!-- Dynamic Content -->
+        </main>
+
+        <nav class="bottom-nav">
+            <div onclick="app.showFeed()" class="nav-item" id="nav-home">
+                <span class="material-symbols-outlined">home</span>
+            </div>
+            <div onclick="app.showSearch()" class="nav-item" id="nav-search">
+                <span class="material-symbols-outlined">search</span>
+            </div>
+            <div onclick="app.openNewPost()" class="nav-item" id="nav-add">
+                <span class="material-symbols-outlined">add_box</span>
+            </div>
+            <div onclick="app.showAlerts()" class="nav-item" id="nav-alerts">
+                <span class="material-symbols-outlined">movie</span> <!-- Using movie for Reels-like icon if needed, but we'll use fav for alerts maybe? No, let's use notifications -->
+            </div>
+            <div onclick="app.showProfile()" class="nav-item profile-nav" id="nav-profile">
+                <img id="nav-profile-pic" src="" alt="Profile">
+            </div>
+        </nav>
+    </div>
+
+    <!-- Modals / Overlays -->
+    <div id="new-post-overlay" class="app-container hidden" style="position: fixed; top: 0; background: #fff; z-index: 1000; height: 100vh; overflow-y: auto;">
+        <div class="new-post-header">
+            <span class="material-symbols-outlined" onclick="app.closeNewPost()" style="cursor:pointer;">close</span>
+            <h2>New post</h2>
+            <button class="next-btn" id="submit-post-btn" onclick="app.createPost()">Share</button>
+        </div>
+        <div class="new-post-content">
+            <div class="image-preview-large" id="media-preview-container">
+                <span class="material-symbols-outlined" style="font-size: 48px; color: #ccc;" onclick="document.getElementById('media-input').click()">add_a_photo</span>
+                <img id="image-preview" class="hidden">
+                <video id="video-preview" class="hidden" controls></video>
+                <input type="file" id="media-input" class="hidden" accept="image/*,video/*" onchange="app.handleMediaSelect(this)">
+            </div>
+            <div class="caption-input-container">
+                <img id="caption-avatar" class="caption-avatar" src="">
+                <textarea id="post-content" class="caption-textarea" placeholder="Write a caption..."></textarea>
+            </div>
+            <div class="new-post-option">
+                <div class="option-left">
+                    <span class="material-symbols-outlined">person</span>
+                    <span>Tag people</span>
+                </div>
+                <span class="material-symbols-outlined">chevron_right</span>
+            </div>
+            <div class="new-post-option">
+                <div class="option-left">
+                    <span class="material-symbols-outlined">location_on</span>
+                    <span>Add location</span>
+                </div>
+                <span class="material-symbols-outlined">chevron_right</span>
+            </div>
+            <div class="new-post-option">
+                <div class="option-left">
+                    <span class="material-symbols-outlined">music_note</span>
+                    <span>Add music</span>
+                </div>
+                <span class="material-symbols-outlined">chevron_right</span>
+            </div>
+            
+            <div style="margin-top: 20px; font-weight: 600; color: #737373; font-size: 12px; text-transform: uppercase; padding: 12px 0;">Also post to</div>
+            <div class="new-post-option">
+                <span>Facebook</span>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="new-post-option">
+                <span>Threads</span>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
