@@ -3,8 +3,7 @@
 
 **STITCH** is a high-fidelity, full-stack social media platform designed with a focus on **Obsidian Luxury** aesthetics. Built using the MERN stack (MongoDB, Express, Vanilla JS SPA, Node.js), STITCH provides a premium interface for creators to share content, interact with peers, and track their digital footprint in a sleek, glassmorphic environment.
 
-![STITCH Hero Showcase](https://raw.githubusercontent.com/your-username/your-repo/main/screenshots/hero_placeholder.png) 
-*(Note: Replace with your actual project screenshots)*
+![STITCH Hero Showcase](./screenshots/Dynamic%20Social%20Feed.jpeg)
 
 ---
 
@@ -53,7 +52,7 @@
 ### 4. 🔔 Activity & Notifications
 *Real-time activity tracking — follows, likes, comments, and mentions.*
 
-![Activity & Notifications](./screenshots/Activity%20%26%20Notifications.jpeg)
+![Activity and Notifications](./screenshots/Activity%20%26%20Notifications.jpeg)
 
 ---
 
